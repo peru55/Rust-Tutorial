@@ -498,6 +498,35 @@ fn main() {
     // Check if today is a weekend
     println!("Is today the weekend {}", today.is_weekend());
 
+    // ENUMS EXAMPLE 2 //
+    fn main() {
+    enum Role {
+        Admin,
+        User,
+        Guest,
+    }
+
+    impl Role {
+        fn can_block(&self) -> bool {
+            match self {
+                Role::Admin => true,
+                _ => false,
+            }
+        }
+    }
+
+    let peru = Role::Admin;
+    let _jorge = Role::User;
+    let _guest = Role::Guest;
+
+    match peru {
+        Role::Admin => println!("you can block"),
+        Role::User => println!("you can't block"),
+        Role::Guest => println!("what are you doing here?"),        
+    }
+    println!("can block: {}", peru.can_block());
+}
+
     // ----- VECTORS -----
     // Vectors are like arrays that can grow if mutable
     // They only store values of the same type
